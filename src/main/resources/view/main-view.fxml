@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.library.ui.controller.MainController"
+            prefHeight="600.0" prefWidth="900.0">
+
+    <top>
+        <VBox spacing="10" style="-fx-background-color: #2c3e50; -fx-padding: 15;">
+            <Label text="Library Management System"
+                   style="-fx-font-size: 24px; -fx-text-fill: white; -fx-font-weight: bold;"/>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="10" style="-fx-padding: 15;">
+            <!-- Search Bar -->
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <TextField fx:id="searchField" promptText="Search by title..."
+                           HBox.hgrow="ALWAYS"/>
+                <Button fx:id="searchButton" text="Search" onAction="#handleSearch"/>
+                <Button fx:id="clearButton" text="Clear" onAction="#handleClear"/>
+            </HBox>
+
+            <!-- Table View -->
+            <TableView fx:id="bookTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="idColumn" text="ID" prefWidth="50"/>
+                    <TableColumn fx:id="titleColumn" text="Title" prefWidth="200"/>
+                    <TableColumn fx:id="authorColumn" text="Author" prefWidth="150"/>
+                    <TableColumn fx:id="isbnColumn" text="ISBN" prefWidth="130"/>
+                    <TableColumn fx:id="dateColumn" text="Published Date" prefWidth="120"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+
+    <right>
+        <VBox spacing="15" style="-fx-background-color: #ecf0f1; -fx-padding: 15;"
+              prefWidth="300">
+            <Label text="Book Details"
+                   style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+            <VBox spacing="5">
+                <Label text="Title:"/>
+                <TextField fx:id="titleField"/>
+            </VBox>
+
+            <VBox spacing="5">
+                <Label text="Author:"/>
+                <TextField fx:id="authorField"/>
+            </VBox>
+
+            <VBox spacing="5">
+                <Label text="ISBN:"/>
+                <TextField fx:id="isbnField"/>
+            </VBox>
+
+            <VBox spacing="5">
+                <Label text="Published Date:"/>
+                <DatePicker fx:id="dateField" prefWidth="Infinity"/>
+            </VBox>
+
+            <Separator/>
+
+            <VBox spacing="10">
+                <Button fx:id="addButton" text="Add Book" onAction="#handleAdd"
+                        maxWidth="Infinity" style="-fx-background-color: #27ae60; -fx-text-fill: white;"/>
+                <Button fx:id="updateButton" text="Update Book" onAction="#handleUpdate"
+                        maxWidth="Infinity" style="-fx-background-color: #3498db; -fx-text-fill: white;"/>
+                <Button fx:id="deleteButton" text="Delete Book" onAction="#handleDelete"
+                        maxWidth="Infinity" style="-fx-background-color: #e74c3c; -fx-text-fill: white;"/>
+                <Button fx:id="refreshButton" text="Refresh" onAction="#handleRefresh"
+                        maxWidth="Infinity" style="-fx-background-color: #95a5a6; -fx-text-fill: white;"/>
+            </VBox>
+        </VBox>
+    </right>
+</BorderPane>
